@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>AeroSanidad</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+
+</head>
+<body>
+  <div>
+
+
+ <% if current_user? %>
+
+    <%= render 'layouts/header' %>
+
+   
+    <div>
+     
+
+      <%= yield %>
+    </div>
+  </div>
+
+    <% if logged_in? %>
+    <%= render 'shared/current_users' %>
+    <% end %>
+
+<% if  current_user %>
+
+<%= render 'layouts/footer' %>
+
+<% end %>
+
+<% else%>
+  <%= yield %>
+
+<% end %>
+
+</body>
+</html>
